@@ -1,0 +1,246 @@
+<html>
+	<head>
+		<title>Cookie</title>
+		<style>
+			
+			#tableSearch,
+			#tableMain{
+				margin-left: auto; 
+				margin-right: auto;
+				width:90% ;
+				background-color: #b8e7eb  		
+			}
+			
+			#tableMain th{
+				background-color: #357EBD
+			}			
+						
+			#tableCookieHeader td,			
+			#tableDetailHeader td,			
+			#tableSiteHeader td{
+				background-color: #357EBD; 
+			}
+			
+			#tableCookies  tr td:first-child{
+				width : 10px;
+			}
+
+			#tableCookies  tr td:first-child+td{
+				overflow-wrap: anywhere
+			}			
+
+			#tableDetail  tr td:nth-child(1)
+			,#tableDetail  tr td:nth-child(2){
+				white-space: nowrap;
+			}
+
+			#tableDomains tr td:first-child{
+				width : 10px;
+			}
+			
+			#tableSearch,
+			#tableSearch td {
+				border: 0px solid black;		
+			}	
+			
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				margin :0px;
+				padding: 0;
+				vertical-align : top;		
+			}			
+			
+
+			table table td {
+				padding: 5px;
+				background-color: #b8e7eb  ;
+				color:black;
+			}
+
+			.btn {
+				width: 120px;
+				height: 25px;
+				padding:4px;
+				border-radius: 2px;
+				color:#fff;
+				background-color: #357EBD; 
+				border:0;				
+			}
+
+			.detailValue{
+				align : left;
+			}	
+
+			.inputCheckbox{
+				width : 10px;
+			}
+						
+			.divResult{			
+				height:427px ; 
+				width: 100%;
+				overflow-y: auto;	
+				border: 1px solid black;				 
+			}
+			
+		</style>
+	</head>
+
+	<body>
+
+
+	<table id="tableMain">
+		<tr>
+			<td colspan=3>
+				<table id="tableSearch" style="width :100%">
+					<tr>
+						<td style="color: white ; text-align : left ; padding: 5px ; background-color:grey">
+							<span style="margin-left :5px">Domain</span>
+							<input  id="search" type="text" style="margin-left :20px" />
+							<input type="button" id="btnSearch" value="Search" class="btn" style="margin-left :10px" />
+						</td>
+						<td style="color: white ; text-align : right ; padding: 5px ; background-color:grey">
+								<input type="button" id="refresh" value="Refresh" class="btn" />
+								<input type="button" id="import" value="Import" class="btn" />
+						</td>						
+					</tr>
+				</table>					
+			</td>		
+			<tr>
+				<th>
+					<table id="tableSiteHeader" style="width:100%">
+						<tr>
+							<td class="inputCheckbox"><input id="chkAllDomain"type="checkbox" /></td>
+							<td class="inputCheckbox"><input id="removeA" type="image" src="remove.png" height="20px" /></td>
+							<!-- <td class="inputCheckbox"><input id="refreshA" type="image" src="refresh.png" height="20px" /></td> -->
+							<td class="inputCheckbox"><input id="exportA" type="image" src="export.png" height="20px" /></td>
+							<!-- <td class="inputCheckbox"><input id="importA" type="image" src="import.png" height="20px" /></td>	-->						
+							<td style="color: white ; text-align : left">Domain</td>
+						</tr>
+					</table>				
+				</th>				
+				<th>
+					<table id="tableCookieHeader" style="width:100%">
+						<tr>
+							<td class="inputCheckbox"><input id="chkAllCookie"  type="checkbox" /></td>
+							<td class="inputCheckbox"><input id="removeB" type="image" src="remove.png" height="20px" /></td>
+							<!-- <td class="inputCheckbox"><input id="refreshB" type="image" src="refresh.png" height="20px" /></td> -->
+							<td class="inputCheckbox"><input id="exportB" type="image" src="export.png" height="20px" ></td>
+							<!-- <td class="inputCheckbox"><input id="importB" type="image" src="import.png" height="20px" /></td> -->								
+							<td style="color: white ; text-align : left">Cookie</td>
+						</tr>
+					</table>
+				</th>
+				<th>
+					<table id="tableDetailHeader" style="width:100%">
+						<tr>			
+							<td style="color: white ; text-align : left">Detail</td>
+						</tr>
+					</table>
+				</th>
+			</tr>
+
+			<tr style="height :400px   ; vertical-align :top">
+			
+				<td style="width :33% ">
+					<div class="divResult">		
+						<table id="tableDomains" style="width:100% ; ">
+						<!--
+							<tr>
+								<td class="inputCheckbox"><input id="domain1" type="checkbox" /></td>
+								<td>domain1</td>
+								<td style="width : 30px">3</td>
+							</tr>
+							-->
+						</table>
+					</div>
+				</td>
+				 
+				<td style="width :33% ">
+					<div class="divResult">				
+						<table id="tableCookies" style="width:100% ">
+							<!--
+							<tr>
+								<td class="inputCheckbox"><input id="cookie1" type="checkbox" /></td>
+								<td style="">gig_bootstrap_3_OsvmtBbTg6S_EUbwTPtbbmoihFY5ON6v6hbVrTbuqpBs7SyF_LQaJwtwKJ60sY1p</td>
+							</tr>
+							-->	
+						</table>
+					</div>						
+				</td>
+				
+				<td style="width :33% ">				
+					<table id="tableDetail" style="width:100% ; ">
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Domain</td>
+							<td class="detailValue"><input id ="domain" type="text" style="width :230px" /></td>			
+						</tr>
+						
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Path</td>
+							<td class="detailValue"><input id ="path" type="text" style="width :230px" /></td>			
+						</tr>						
+						
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Name</td>
+							<td class="detailValue"><input id ="name" type="text" style="width :230px" /></td>			
+						</tr>
+
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Store ID</td>
+							<td class="detailValue"><input id ="storeId" type="number" min="0" style="width :230px" /></td>			
+						</tr>
+						
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Value</td>
+							<td class="detailValue"><textarea id ="value" wrap="off" cols="29" rows="5" style=" resize: none;" ></textarea></td>			
+						</tr>						
+						
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Expire</td>
+							<td class="detailValue">
+								<input id ="expireDate" type="date" style="width :130px" />
+								<input id ="expireTime" type="time" />
+							</td>			
+						</tr>						
+						
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Session</td>
+							<td class="detailValue"><input id ="session" type="checkbox" /></td>			
+						</tr>	
+
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Host-Only</td>
+							<td class="detailValue"><input id ="hostOnly" type="checkbox" /></td>			
+						</tr>	
+						
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Http-Only</td>
+							<td class="detailValue"><input id ="httpOnly" type="checkbox" /></td>			
+						</tr>	
+
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td width="100px">Secure</td>
+							<td class="detailValue"><input id ="secure" type="checkbox" /></td>			
+						</tr>
+
+						<tr style="background-color: #b8e7eb  ;color:black;">
+							<td colspan=2" align="right">
+								<input type="button" id="create" value="Set / Create New" class="btn" />
+							</td>		
+						</tr>						
+						
+					</table>
+				
+				</td>				
+					
+			</tr>
+		</table>
+	<input type="file" id="selectFiles" accept=".json,.txt"  style="display : none" />
+	</body>
+<html>
+
+<script src="index.js"></script>
+

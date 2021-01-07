@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Setting</title>
+		<style>
+			
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+
+			th,
+			td {
+				padding: 5px;
+			}
+			
+			th {
+				background-color: #357EBD;
+				color:#FFF;
+				font-size:15px;
+				height :10px;
+				padding: 5px 
+			}
+			
+			td{
+				cursor:all-scroll;
+			}	
+			
+			.input_url {
+				width :99%;
+			}
+						
+			button {
+				width: 70px;
+			}
+			
+			.button_add,
+			.button_remove,
+			.button_up,
+			.button_down {
+				width :21px
+			}
+			
+			button,
+			#button_yes
+			#button_no,
+			#button_alert {
+				padding:4px;
+				border-radius: 2px;
+				color:#fff;
+				background-color: #357EBD; 
+				border:0;			
+			}
+			
+			#overlay {
+				position: fixed; 
+				display: none;
+				width: 100%; 
+				height: 100%;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0,0,0,0.1);
+				z-index: 1;
+				cursor: pointer; 
+			}
+						
+			#popup_box {
+				position: absolute; ;
+				display: none;
+				width : 300px  ;  	
+				top: 50%; 
+				left: 50%;   
+				background-color: white; 
+				z-index: 2;
+				border-radius: 2px;
+				border: 1px solid black;
+				text-align: center; 								
+				transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%); 
+				-webkit-transform: translate(-50%, -50%);
+				cursor:all-scroll;
+			}
+
+			#popup_header {
+				height:20px ; 
+				background-color:#357EBD;
+				color:#FFF;
+				text-align:left;
+				padding-left:5px;
+			}	
+			
+			#popup_message {
+				font-size:14px
+			}					
+
+			.inline { 
+				display: inline-block; 
+				vertical-align: middle;
+			}			
+				
+		</style>				
+	</head>
+
+	<body>
+		<h1>Setting</h1>
+
+		<br/>
+		
+		<table id="table">
+			<tr>
+				<th>Name</th>
+				<th width="70%">Url</th>
+				<th width="80px">Action</th>
+			</tr>
+		</table>
+		<br>
+		<button id="save_url">Save</button>		
+		<button id="reload_url">Reload</button>	
+				
+		<div id="overlay"></div> 
+		<div id="popup_box">
+			<div id="popup_header"></div>
+			<div>
+				<div class="inline">					
+					<image id="image_error" src="error.png" height="50px">
+					<image id="image_confirm" src="confirm.png" height="50px">
+					<image id="image_info" src="info.png" height="50px">					
+				</div>			
+				<div id="popup_message" class="inline"></div>				
+			</div>				
+			<div style="height :35px">
+				<button id="button_close">Close</button>
+				<button id="button_yes">Yes</button>
+				<button id="button_no">No</button>				
+			</div>
+		</div>		
+
+		<script src="options.js"></script>
+	</body>
+</html>
+
+<script>
+
+
+

@@ -1,0 +1,30 @@
+{
+    "name": "Ad Blocker",
+    "icons": {
+        "16": "dark_banner.png",
+        "48": "dark_banner.png",
+        "128": "dark_banner.png"
+    },
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "Block the ad.",
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+  ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+	
+	  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ]
+  
+}

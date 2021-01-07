@@ -1,0 +1,180 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<table id="table1" border=1>
+			 <tr>  
+			  <th>EMAIL</th> 
+			  <th>Action</th>
+			 </tr>
+			 <tr id="row1" draggable='true' >  
+			  <td>AAAAAAAAAAAAAAAAAAAAAAAA@gmail.com</td>
+			  <td>
+				<input id="add1" 	class="button button_add"    type='button' value="Add" id="b_add" onClick="do_add(this)">
+				<input id="remove1" class="button button_remove" type='button' value="Remove" id="b_remove" onClick="do_remove(this)">
+				<input id="up1"  	class="button button_up"     type='button' value="Up" id="b_up" onClick="do_up(this)">
+				<input id="down1"   class="button button_down"   type='button' value="Down" id="b_down" onClick="do_down(this)">
+			  </td>
+			 </tr>
+			 <tr id="row2" draggable='true'>  
+			  <td>BBBBBBBBBBBBBBBBBBBBBBBBBB@yahoo.com</td>
+			  <td>
+				<input  id="add2" 	 class="button button_add"    type='button' value="Add" id="b_add" onClick="do_add(this)">
+				<input  id="remove2" class="button button_remove" type='button' value="Remove" id="b_remove" onClick="do_remove(this)">
+				<input  id="up2"  	 class="button button_up"     type='button' value="Up" id="b_up" onClick="do_up(this)">
+				<input  id="down2"   class="button button_down"   type='button' value="Down" id="b_down" onClick="do_down(this)">
+			  </td>                                               
+			 </tr>
+			 <tr id="row3" draggable='true' >  
+			  <td>CCCCCCCCCCCCCCCCCCCCCCCCCC@yahoo.com</td>
+			  <td>
+				<input id="add3" 	class="button button_add"    type='button' value="Add" id="b_add" onClick="do_add(this)">
+				<input id="remove3" class="button button_remove" type='button' value="Remove" id="b_remove" onClick="do_remove(this)">
+				<input id="up3"  	class="button button_up"     type='button' value="Up" id="b_up" onClick="do_up(this)">
+				<input id="down3"  	class="button button_down"   type='button' value="Down" id="b_down" onClick="do_down(this)">
+			  </td>  
+			 </tr>
+			 <tr id="row4" draggable='true' >  
+			  <td>DDDDDDDDDDDDDDDDDDDDDDDD@yahoo.com</td>
+			  <td>
+				<input  id="add4" 	 class="button button_add"    type='button' value="Add" id="b_add" onClick="do_add(this)">
+				<input  id="remove4" class="button button_remove" type='button' value="Remove" id="b_remove" onClick="do_remove(this)">
+				<input  id="up4"  	 class="button button_up"     type='button' value="Up" id="b_up" onClick="do_up(this)">
+				<input  id="down4"   class="button button_down"   type='button' value="Down" id="b_down" onClick="do_down(this)">
+			  </td>  
+			 </tr> 
+		</table>
+	</body>
+</html>	
+
+<script>
+
+	for(var i=1 ;i< 5 ; i++){
+		var row = document.getElementById("table1").rows[i];
+		//var button_add = document.getElementById("add"+i);
+		var button_add = row.getElementsByClassName("button_add")[0];
+		button_add.addEventListener('click', do_add1.bind(null,button_add,row), { passive: false } );	
+		//var button_remove = document.getElementById("remove"+i);
+		var button_remove = row.getElementsByClassName("button_remove")[0];
+		button_remove.addEventListener('click', do_remove1.bind(null,button_remove,row), { passive: false } );
+		//var button_up = document.getElementById("up"+i);
+		var button_up = row.getElementsByClassName("button_up")[0];		
+		button_up.addEventListener('click', do_up1.bind(null,button_up,row), { passive: false } );
+		//var button_down = document.getElementById("down"+i);
+		var button_down = row.getElementsByClassName("button_down")[0];
+		button_down.addEventListener('click', do_down1.bind(null,button_down,row), { passive: false } );
+
+		row.addEventListener('dragstart', dragstart.bind(null,row), { passive: false } );
+		row.addEventListener('dragover', dragover.bind(null,row), { passive: false } );
+		row.addEventListener('touchstart', dragstart.bind(null,row), { passive: false } );
+		row.addEventListener('touchmove', dragover.bind(null,row), { passive: false } );		
+	}
+	
+	function do_add1(cEvent,cRow){ 
+		//console.log('do_add');
+		var cRow = cEvent.parentNode.parentNode;
+		var t1 = document.getElementById("table1");
+		row = event.target; 
+	}
+
+	function do_remove1(cEvent,cRow){ 
+		//console.log('do_add');	
+		var cRow = cEvent.parentNode.parentNode;
+		var t1 = document.getElementById("table1");
+		row = event.target; 
+		cRow.remove();
+	}
+
+	function do_up1(cEvent,cRow){ 
+		//console.log('do_up');
+		var cRow = cEvent.parentNode.parentNode;
+		var table = document.getElementById("table1");		
+		//row = event.target; 
+		var rows = table.rows;		
+		cIndex = cRow.rowIndex;		
+		if( cIndex > 1 && rows[cIndex] !== undefined && rows[cIndex-1] !== undefined){
+			cEvent.parentNode.parentNode.parentNode.insertBefore(cRow,rows[cIndex-1]);
+		}			
+	}
+
+	function do_down1(cEvent,cRow){ 
+		//console.log('do_up');
+		var cRow = cEvent.parentNode.parentNode;
+		var table = document.getElementById("table1");		
+		//row = event.target; 
+		var rows = table.rows;		
+		cIndex = cRow.rowIndex;
+		
+		if( rows[cIndex+1] !== undefined && rows[cIndex] !== undefined){
+			cEvent.parentNode.parentNode.parentNode.insertBefore(rows[cIndex+1],cRow);
+		} 
+	}	
+
+	function do_add(cEvent){ 
+	}
+
+	function do_remove(cEvent){ 
+	}
+
+	function do_up(cEvent){ 			
+	}
+
+	function do_down(cEvent){ 
+	}
+
+	var rowDrag;
+
+	function dragstart(cEvent,cRow){ 
+		//console.log('dragstart');	
+		rowDrag = event.target; 
+	}
+
+	function dragover(cEvent,cRow){
+		//console.log('dragover');	
+		var e = event;
+		e.preventDefault(); 
+		var sRow = (rowDrag.tagName == "TD")? rowDrag.parentNode:rowDrag;
+		var sTarget;
+		
+		if (e.touches === undefined ) {
+			sTarget = e.target.parentNode;				
+		}else{
+			var target = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+			sTarget = (target.tagName == "TR") ? target:target.parentNode;			
+		}
+		
+		if(sRow.tagName == "TR" && sTarget.tagName == "TR" && sTarget.rowIndex >0  ){	
+			let children =  Array.from(e.target.parentNode.parentNode.children);
+			if(children.indexOf(e.target.parentNode)>children.indexOf(sRow)){
+				sTarget.after(sRow);	
+			}else{
+				sTarget.before(sRow);
+			}			
+		}		
+	}
+	
+	
+	function touchHandler(event) {
+		var touch = event.changedTouches[0];
+
+		var simulatedEvent = document.createEvent("MouseEvent");
+			simulatedEvent.initMouseEvent({
+			touchstart: "mousedown",
+			touchmove: "mousemove",
+			touchend: "mouseup"
+		}[event.type], true, true, window, 1,
+			touch.screenX, touch.screenY,
+			touch.clientX, touch.clientY, false,
+			false, false, false, 0, null);
+
+		touch.target.dispatchEvent(simulatedEvent);
+		event.preventDefault();
+	}
+	
+    document.addEventListener("touchstart", touchHandler,  { passive: false });
+    document.addEventListener("touchmove", touchHandler,  { passive: false });
+    document.addEventListener("touchend", touchHandler,  { passive: false });
+    document.addEventListener("touchcancel", touchHandler,  { passive: false });	  
+	 
+
+</script>

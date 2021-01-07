@@ -1,0 +1,72 @@
+<button onClick="exportFile()" >Export</button>
+<button id="import" onclick="selectFiles()">Import</button> 
+
+<input type="file" id="selectFiles" accept=".json,.txt"   onChange="importFile()"  style="display : none" />
+<textarea id="result"></textarea>
+
+
+<script>
+
+
+function selectFiles(){
+	document.getElementById('selectFiles').value = "";
+	document.getElementById('selectFiles').click();
+}
+
+function exportFile() {
+    let jsonData = document.getElementById("result").value
+    let dataStr = JSON.stringify(jsonData);
+    let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+
+    let exportFileDefaultName = 'data.json';
+
+    let linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+}
+
+function importFile() {
+	var files = document.getElementById('selectFiles').files;
+	if (files.length <= 0) {
+		return false;
+	}
+	var fr = new FileReader();
+	fr.readAsText(files.item(0));
+
+
+	fr.onload = (e) => {
+		let content = e.target.result
+		//let content = await JSON.parse(aaa)
+		//console.log(content)
+		document.getElementById('result').value = content;
+	}
+  
+
+}
+
+	var domainNames = [];
+	domainNames.push("H");
+	domainNames.push("B");
+	domainNames.push("A");
+	domainNames.push("C");
+	domainNames.push("C");
+	domainNames.push("A");	
+	
+	
+	var domainCount = {};
+	domainNames.forEach(x=>domainCount[x]=( domainCount[x] || 0)+1 );
+	var domainCounts = new Map(Object.entries(domainCount));
+	
+	console.log(domainCounts.get("A"))	
+	console.log(domainCount)	
+	
+    var pos =  domainNames.indexOf("A")	;
+	console.log("pos = " + pos)
+
+</script>
+
+
+
+
+

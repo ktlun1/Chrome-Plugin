@@ -1,0 +1,16 @@
+[{
+	"Host raw": "http://.000webhost.com/",
+	"Name raw": "_vis_opt_s",
+	"Path raw": "/",
+	"Content raw": "1%7C",
+	"Expires": "12-03-2021 11:24:47",
+	"Expires raw": "1615577087",
+	"Send for": "Any type of connection",
+	"Send for raw": "false",
+	"HTTP only raw": "false",
+	"SameSite raw": "no_restriction",
+	"This domain only": "Valid for subdomains",
+	"This domain only raw": "false",
+	"Store raw": "firefox-default",
+	"First Party Domain": ""
+}]

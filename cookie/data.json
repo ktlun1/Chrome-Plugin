@@ -1,0 +1,38 @@
+[{
+        "domain": ".nexxt.com",
+        "expirationDate": 3957727017.896028,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "UserGID",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "412801263069469194"
+    }, {
+        "domain": ".network.bazaarvoice.com",
+        "expirationDate": 1624499138.342637,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "BVID",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "fadabb08-c300-4042-a6da-299890e5250b"
+    }, {
+        "domain": ".blismedia.com",
+        "expirationDate": 1623890919.007325,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "b",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "5EA3A7FD7D2A8F4B032217DBBLIS"
+    }
+]
